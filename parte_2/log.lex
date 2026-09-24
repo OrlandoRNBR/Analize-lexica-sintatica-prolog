@@ -10,6 +10,8 @@ void yyerror(const char *s);
 
 %%
 
+"v"     { return VERDADEIRO; }
+"f"     { return FALSO; }
 "~"     { return NAO; }
 "&"     { return E; }
 "|"     { return OU; }
@@ -18,7 +20,7 @@ void yyerror(const char *s);
 "("     { return ABRE; }
 ")"     { return FECHA; }
 
-[a][0-9]* { 
+[v,f]* { 
     yylval.strVal = strdup(yytext); 
     return SIMB; 
 }
